@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Викторина: GitHub и Codex</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="intro" id="intro">
+      <div class="intro__content">
+        <p class="eyebrow">Мини-курс для старта</p>
+        <h1>Викторина по GitHub и Codex</h1>
+        <p class="intro__text">
+          Проверьте, что понятно: где лежит проект, зачем нужен GitHub Pages,
+          что такое токен и чем Codex отличается от обычного чата.
+        </p>
+        <button class="primary-btn" id="startBtn" type="button">Начать</button>
+      </div>
+      <div class="score-card" aria-label="Информация о викторине">
+        <strong>10</strong>
+        <span>коротких вопросов</span>
+      </div>
+    </section>
+
+    <section class="terms" aria-label="Короткий словарь">
+      <article class="term-card">
+        <span class="term-icon blue">GH</span>
+        <div>
+          <h2>GitHub</h2>
+          <p>Онлайн-место, где хранят проект, файлы и историю изменений.</p>
+        </div>
+      </article>
+      <article class="term-card">
+        <span class="term-icon violet">CX</span>
+        <div>
+          <h2>Codex</h2>
+          <p>Помощник от OpenAI, который может работать с файлами проекта и кодом.</p>
+        </div>
+      </article>
+      <article class="term-card">
+        <span class="term-icon coral">🔑</span>
+        <div>
+          <h2>Token</h2>
+          <p>Личный ключ доступа. Его нельзя показывать другим людям.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="quiz is-hidden" id="quiz" aria-live="polite">
+      <div class="quiz__top">
+        <span id="progressText">Вопрос 1 из 10</span>
+        <span id="scoreText">0 правильных</span>
+      </div>
+      <div class="progress">
+        <span id="progressBar"></span>
+      </div>
+      <article class="question-card">
+        <p class="question-tag" id="questionTag">GitHub</p>
+        <h2 id="questionText"></h2>
+        <div class="answers" id="answers"></div>
+      </article>
+      <div class="quiz__actions">
+        <button class="ghost-btn" id="restartBtn" type="button">Сначала</button>
+        <button class="primary-btn" id="nextBtn" type="button" disabled>Дальше</button>
+      </div>
+    </section>
+
+    <section class="result is-hidden" id="result">
+      <p class="eyebrow">Результат</p>
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+      <button class="primary-btn" id="againBtn" type="button">Пройти еще раз</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
