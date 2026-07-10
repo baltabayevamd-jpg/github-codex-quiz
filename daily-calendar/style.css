@@ -1,0 +1,508 @@
+:root {
+  color-scheme: light;
+  --bg: #fff7fb;
+  --ink: #21182f;
+  --muted: #6d6178;
+  --line: #eadff3;
+  --white: #ffffff;
+  --cyan: #18c9ff;
+  --purple: #823cff;
+  --lime: #73e800;
+  --green: #00c853;
+  --yellow: #ffd52f;
+  --pink: #ff5aa5;
+  --orange: #ff8a00;
+  --shadow: 0 20px 55px rgba(91, 43, 133, 0.14);
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(24, 201, 255, 0.22), transparent 24%),
+    radial-gradient(circle at 92% 18%, rgba(255, 90, 165, 0.24), transparent 26%),
+    linear-gradient(135deg, #fff7fb 0%, #ecfbff 50%, #fff9dd 100%);
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.app {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0 34px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 18px;
+}
+
+.hero__content,
+.panel,
+.dashboard article,
+.ideas article {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.hero__content {
+  display: flex;
+  min-height: 420px;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(26px, 5vw, 58px);
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 760px;
+  margin-bottom: 18px;
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 25px;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.hero p:not(.eyebrow),
+.ideas p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.legend span {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 38px;
+  border-radius: 999px;
+  background: #fff;
+  padding: 0 12px;
+  font-weight: 850;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.dot.done {
+  background: var(--green);
+}
+
+.dot.ontime {
+  background: var(--yellow);
+}
+
+.dot.missed {
+  background: var(--pink);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.dashboard article {
+  min-height: 116px;
+  padding: 22px;
+}
+
+.dashboard strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1;
+}
+
+.dashboard span,
+.task-card p {
+  color: var(--muted);
+}
+
+.planner {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.panel {
+  padding: 22px;
+}
+
+.panel__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.icon-btn,
+.primary-btn,
+.filters button,
+.task-action {
+  min-height: 42px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 900;
+}
+
+.icon-btn {
+  width: 42px;
+  background: var(--pink);
+  color: #fff;
+}
+
+.primary-btn {
+  align-self: end;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: #fff;
+  padding: 0 18px;
+}
+
+.week-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.day-btn {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 78px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px;
+  color: var(--ink);
+  text-align: left;
+}
+
+.day-btn.is-active {
+  border-color: var(--purple);
+  background: #f5ecff;
+}
+
+.day-number {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--cyan), var(--lime));
+  color: #fff;
+  font-size: 24px;
+  font-weight: 950;
+}
+
+.day-btn strong,
+.day-btn small {
+  display: block;
+}
+
+.day-btn small {
+  color: var(--muted);
+}
+
+.day-score {
+  min-width: 34px;
+  border-radius: 999px;
+  background: var(--yellow);
+  padding: 6px 9px;
+  text-align: center;
+  font-weight: 950;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.filters button {
+  background: #fff;
+  color: var(--muted);
+  padding: 0 12px;
+}
+
+.filters button.is-active {
+  background: var(--ink);
+  color: #fff;
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns: 130px minmax(210px, 1fr) minmax(160px, 0.75fr) auto;
+  gap: 10px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #f8f2ff;
+  padding: 12px;
+}
+
+.task-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.task-form input {
+  min-height: 42px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0 12px;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+}
+
+.task-card {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 104px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.task-card.done {
+  background: #d9ffd8;
+  border-color: var(--green);
+}
+
+.task-card.ontime {
+  background: #fff2a6;
+  border-color: var(--yellow);
+}
+
+.task-card.missed {
+  background: #ffd6e9;
+  border-color: var(--pink);
+}
+
+.task-time {
+  display: grid;
+  place-items: center;
+  min-height: 60px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--purple);
+  font-size: 21px;
+  font-weight: 950;
+}
+
+.task-card h3 {
+  margin-bottom: 5px;
+}
+
+.task-card p {
+  margin-bottom: 0;
+}
+
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.task-action {
+  background: #fff;
+  color: var(--ink);
+  padding: 0 10px;
+}
+
+.task-action.done {
+  color: var(--green);
+}
+
+.task-action.ontime {
+  color: #b57900;
+}
+
+.task-action.missed {
+  color: var(--pink);
+}
+
+.priority {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  padding: 0 9px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.ideas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ideas article {
+  min-height: 150px;
+  padding: 22px;
+}
+
+.idea-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.toast {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 10;
+  max-width: min(420px, calc(100% - 36px));
+  transform: translateY(16px);
+  opacity: 0;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  padding: 14px 16px;
+  box-shadow: 0 20px 45px rgba(33, 24, 47, 0.24);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.toast.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 1080px) {
+  .hero,
+  .planner {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard,
+  .ideas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .task-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .app {
+    width: min(100% - 20px, 1440px);
+    padding-top: 10px;
+  }
+
+  .hero__content,
+  .hero img {
+    min-height: auto;
+  }
+
+  .dashboard,
+  .ideas,
+  .task-form,
+  .task-card {
+    grid-template-columns: 1fr;
+  }
+
+  .panel__head {
+    flex-direction: column;
+  }
+
+  .filters,
+  .task-actions {
+    justify-content: flex-start;
+  }
+}

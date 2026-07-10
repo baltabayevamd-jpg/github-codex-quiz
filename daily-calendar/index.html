@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Яркий календарь задач</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">План на каждый день</p>
+        <h1>Календарь дел, встреч и маршрутов</h1>
+        <p>Записывайте, во сколько и куда идти, какие задачи выполнить, и отмечайте результат цветом.</p>
+        <div class="legend" aria-label="Цвета статусов">
+          <span><i class="dot done"></i>Выполнено</span>
+          <span><i class="dot ontime"></i>Выполнено вовремя</span>
+          <span><i class="dot missed"></i>Не выполнено</span>
+        </div>
+      </div>
+      <img src="assets/calendar-hero.png" alt="Яркий календарь с задачами и отметками">
+    </header>
+
+    <main>
+      <section class="dashboard" aria-label="Сводка">
+        <article>
+          <strong id="totalCount">0</strong>
+          <span>дел на неделе</span>
+        </article>
+        <article>
+          <strong id="doneCount">0</strong>
+          <span>выполнено</span>
+        </article>
+        <article>
+          <strong id="ontimeCount">0</strong>
+          <span>вовремя</span>
+        </article>
+        <article>
+          <strong id="missedCount">0</strong>
+          <span>ждет внимания</span>
+        </article>
+      </section>
+
+      <section class="planner">
+        <aside class="panel week-panel">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow">Неделя</p>
+              <h2>Выберите день</h2>
+            </div>
+            <button class="icon-btn" type="button" id="todayBtn" aria-label="Сегодня">●</button>
+          </div>
+          <div class="week-grid" id="weekGrid"></div>
+        </aside>
+
+        <section class="panel day-panel" aria-label="Задачи дня">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow" id="selectedDate">Сегодня</p>
+              <h2 id="dayTitle">План дня</h2>
+            </div>
+            <div class="filters" role="group" aria-label="Фильтр задач">
+              <button class="is-active" type="button" data-filter="all">Все</button>
+              <button type="button" data-filter="done">Зеленые</button>
+              <button type="button" data-filter="ontime">Желтые</button>
+              <button type="button" data-filter="missed">Розовые</button>
+            </div>
+          </div>
+
+          <form class="task-form" id="taskForm">
+            <label>
+              <span>Время</span>
+              <input type="time" id="taskTime" required>
+            </label>
+            <label>
+              <span>Куда / что сделать</span>
+              <input type="text" id="taskTitle" placeholder="Например: 10:00 встреча с клиентом" required>
+            </label>
+            <label>
+              <span>Место</span>
+              <input type="text" id="taskPlace" placeholder="Офис, дом, онлайн">
+            </label>
+            <button class="primary-btn" type="submit">Добавить</button>
+          </form>
+
+          <div class="task-list" id="taskList" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section class="ideas">
+        <article>
+          <span class="idea-icon">★</span>
+          <h3>Фокус дня</h3>
+          <p id="focusText">Выберите 1 главное дело и держите его сверху списка.</p>
+        </article>
+        <article>
+          <span class="idea-icon">↗</span>
+          <h3>Маршрут</h3>
+          <p>Для встреч можно указывать место, чтобы сразу видеть, куда идти.</p>
+        </article>
+        <article>
+          <span class="idea-icon">⚑</span>
+          <h3>Приоритет</h3>
+          <p>Срочные задачи отмечены яркой плашкой и поднимаются выше в списке.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
