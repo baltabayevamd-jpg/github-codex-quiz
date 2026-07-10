@@ -3,78 +3,156 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Викторина: GitHub и Codex</title>
+  <title>QBox | Центр лидов</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <section class="intro" id="intro">
-      <div class="intro__content">
-        <p class="eyebrow">Мини-курс для старта</p>
-        <h1>Викторина по GitHub и Codex</h1>
-        <p class="intro__text">
-          Проверьте, что понятно: где лежит проект, зачем нужен GitHub Pages,
-          что такое токен и чем Codex отличается от обычного чата.
-        </p>
-        <button class="primary-btn" id="startBtn" type="button">Начать</button>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#dashboard" aria-label="QBox">
+        <span class="brand__mark">Q</span>
+        <span>
+          <strong>QBox</strong>
+          <small>центр лидов</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Разделы">
+        <a href="#queue">Лиды</a>
+        <a href="#team">Операторы</a>
+        <a href="#insights">Акция</a>
+      </nav>
+      <div class="mode-switch" role="group" aria-label="Роль">
+        <button class="is-active" type="button" data-mode="operator">Оператор</button>
+        <button type="button" data-mode="supervisor">Супервайзер</button>
       </div>
-      <div class="score-card" aria-label="Информация о викторине">
-        <strong>10</strong>
-        <span>коротких вопросов</span>
-      </div>
-    </section>
+    </header>
 
-    <section class="terms" aria-label="Короткий словарь">
-      <article class="term-card">
-        <span class="term-icon blue">GH</span>
-        <div>
-          <h2>GitHub</h2>
-          <p>Онлайн-место, где хранят проект, файлы и историю изменений.</p>
+    <main id="dashboard">
+      <section class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Рабочий прототип</p>
+          <h1>Лиды появляются сами. Назначения уходят операторам автоматически.</h1>
+          <p>
+            QBox помогает команде быстрее брать заявки, видеть загрузку операторов и понимать,
+            почему абоненты не подключают мега-акционный тариф.
+          </p>
+          <div class="hero__actions">
+            <button class="primary-btn" type="button" id="assignAllBtn">Авто-распределить</button>
+            <button class="ghost-btn" type="button" id="addLeadBtn">Добавить лид</button>
+          </div>
         </div>
-      </article>
-      <article class="term-card">
-        <span class="term-icon violet">CX</span>
-        <div>
-          <h2>Codex</h2>
-          <p>Помощник от OpenAI, который может работать с файлами проекта и кодом.</p>
+        <figure class="hero__visual" aria-label="Визуализация работы контакт-центра">
+          <img src="assets/qbox-workflow.png" alt="Иллюстрация контакт-центра и потока лидов">
+        </figure>
+      </section>
+
+      <section class="metrics" aria-label="Ключевые показатели">
+        <article>
+          <span id="newCount">0</span>
+          <p>новых лидов</p>
+        </article>
+        <article>
+          <span id="activeCount">0</span>
+          <p>в работе</p>
+        </article>
+        <article>
+          <span id="slaValue">00:00</span>
+          <p>среднее ожидание</p>
+        </article>
+        <article>
+          <span id="conversionValue">0%</span>
+          <p>конверсия акции</p>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <div class="panel queue-panel" id="queue">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow">Очередь</p>
+              <h2>Новые заявки</h2>
+            </div>
+            <span class="live-pill" id="livePill">Live</span>
+          </div>
+          <div class="lead-list" id="leadList" aria-live="polite"></div>
         </div>
-      </article>
-      <article class="term-card">
-        <span class="term-icon coral">🔑</span>
-        <div>
-          <h2>Token</h2>
-          <p>Личный ключ доступа. Его нельзя показывать другим людям.</p>
+
+        <aside class="panel detail-panel" aria-label="Карточка лида">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow">Карточка</p>
+              <h2 id="detailName">Выберите лид</h2>
+            </div>
+            <span class="status-badge" id="detailStatus">ожидает</span>
+          </div>
+          <dl class="detail-grid">
+            <div>
+              <dt>Телефон</dt>
+              <dd id="detailPhone">-</dd>
+            </div>
+            <div>
+              <dt>Регион</dt>
+              <dd id="detailRegion">-</dd>
+            </div>
+            <div>
+              <dt>Интерес</dt>
+              <dd id="detailTariff">-</dd>
+            </div>
+            <div>
+              <dt>Оператор</dt>
+              <dd id="detailOwner">-</dd>
+            </div>
+          </dl>
+          <label class="field">
+            <span>Причина неподключения</span>
+            <select id="reasonSelect">
+              <option value="">Не выбрана</option>
+              <option>Дорого</option>
+              <option>Не понял выгоду</option>
+              <option>Уже есть другой тариф</option>
+              <option>Не подходит пакет</option>
+              <option>Нужен перезвон</option>
+              <option>Технически недоступно</option>
+            </select>
+          </label>
+          <div class="detail-actions">
+            <button class="primary-btn" type="button" id="connectBtn">Подключен</button>
+            <button class="ghost-btn" type="button" id="declineBtn">Отказ</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="lower-grid">
+        <div class="panel" id="team">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow">Команда</p>
+              <h2>Распределение нагрузки</h2>
+            </div>
+            <button class="icon-btn" type="button" id="rebalanceBtn" aria-label="Перебалансировать">↻</button>
+          </div>
+          <div class="operator-list" id="operatorList"></div>
         </div>
-      </article>
-    </section>
 
-    <section class="quiz is-hidden" id="quiz" aria-live="polite">
-      <div class="quiz__top">
-        <span id="progressText">Вопрос 1 из 10</span>
-        <span id="scoreText">0 правильных</span>
-      </div>
-      <div class="progress">
-        <span id="progressBar"></span>
-      </div>
-      <article class="question-card">
-        <p class="question-tag" id="questionTag">GitHub</p>
-        <h2 id="questionText"></h2>
-        <div class="answers" id="answers"></div>
-      </article>
-      <div class="quiz__actions">
-        <button class="ghost-btn" id="restartBtn" type="button">Сначала</button>
-        <button class="primary-btn" id="nextBtn" type="button" disabled>Дальше</button>
-      </div>
-    </section>
+        <div class="panel" id="insights">
+          <div class="panel__head">
+            <div>
+              <p class="eyebrow">Мега-акционный тариф</p>
+              <h2>Почему не подключают</h2>
+            </div>
+            <span class="trend">-8% отказов</span>
+          </div>
+          <div class="reason-chart" id="reasonChart"></div>
+          <div class="script-box">
+            <strong>Подсказка оператору</strong>
+            <p id="scriptTip">Сравните выгоду тарифа с текущими расходами абонента и предложите перезвон, если решение нужно согласовать.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-    <section class="result is-hidden" id="result">
-      <p class="eyebrow">Результат</p>
-      <h2 id="resultTitle"></h2>
-      <p id="resultText"></p>
-      <button class="primary-btn" id="againBtn" type="button">Пройти еще раз</button>
-    </section>
-  </main>
-
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>
 </html>
