@@ -3,156 +3,192 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>QBox | Центр лидов</title>
+  <title>TTC Smart City | Умный город</title>
+  <meta name="description" content="Презентационная страница проекта TTC Smart City / Умный город: безопасный город, smart-освещение, образование, телеметрия и ЖКХ.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#dashboard" aria-label="QBox">
-        <span class="brand__mark">Q</span>
-        <span>
-          <strong>QBox</strong>
-          <small>центр лидов</small>
-        </span>
-      </a>
-      <nav class="nav" aria-label="Разделы">
-        <a href="#queue">Лиды</a>
-        <a href="#team">Операторы</a>
-        <a href="#insights">Акция</a>
-      </nav>
-      <div class="mode-switch" role="group" aria-label="Роль">
-        <button class="is-active" type="button" data-mode="operator">Оператор</button>
-        <button type="button" data-mode="supervisor">Супервайзер</button>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="TTC Smart City">
+      <span class="brand__mark">TTC</span>
+      <span>
+        <strong>Smart City</strong>
+        <small>Умный город</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Разделы сайта">
+      <a href="#modules">Модули</a>
+      <a href="#impact">Эффект</a>
+      <a href="#role">Роль TTC</a>
+      <a href="#source">Источник</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">АО «Транстелеком»</p>
+        <h1 id="hero-title">Smart City как цифровая инфраструктура для городской среды</h1>
+        <p>
+          Проект «Smart-city - Умный город» описан TTC как комплекс инновационных решений,
+          которые используют информационные и коммуникационные технологии для городских
+          служб, безопасности и инфраструктуры.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#modules">Посмотреть модули</a>
+          <a class="button button--ghost" href="#impact">Ключевые эффекты</a>
+        </div>
       </div>
-    </header>
 
-    <main id="dashboard">
-      <section class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">Рабочий прототип</p>
-          <h1>Лиды появляются сами. Назначения уходят операторам автоматически.</h1>
-          <p>
-            QBox помогает команде быстрее брать заявки, видеть загрузку операторов и понимать,
-            почему абоненты не подключают мега-акционный тариф.
-          </p>
-          <div class="hero__actions">
-            <button class="primary-btn" type="button" id="assignAllBtn">Авто-распределить</button>
-            <button class="ghost-btn" type="button" id="addLeadBtn">Добавить лид</button>
-          </div>
+      <div class="city-stage" aria-label="Схема умного города">
+        <div class="skyline" aria-hidden="true">
+          <span style="--h: 42%; --x: 6%;"></span>
+          <span style="--h: 66%; --x: 18%;"></span>
+          <span style="--h: 50%; --x: 31%;"></span>
+          <span style="--h: 78%; --x: 45%;"></span>
+          <span style="--h: 56%; --x: 60%;"></span>
+          <span style="--h: 70%; --x: 75%;"></span>
+          <span style="--h: 46%; --x: 88%;"></span>
         </div>
-        <figure class="hero__visual" aria-label="Визуализация работы контакт-центра">
-          <img src="assets/qbox-workflow.png" alt="Иллюстрация контакт-центра и потока лидов">
-        </figure>
-      </section>
+        <div class="signal signal--one"></div>
+        <div class="signal signal--two"></div>
+        <div class="hub">
+          <strong>TTC</strong>
+          <span>data hub</span>
+        </div>
+        <div class="node node--camera">Видео</div>
+        <div class="node node--light">Свет</div>
+        <div class="node node--meter">Учет</div>
+        <div class="node node--school">Edu</div>
+      </div>
+    </section>
 
-      <section class="metrics" aria-label="Ключевые показатели">
-        <article>
-          <span id="newCount">0</span>
-          <p>новых лидов</p>
-        </article>
-        <article>
-          <span id="activeCount">0</span>
-          <p>в работе</p>
-        </article>
-        <article>
-          <span id="slaValue">00:00</span>
-          <p>среднее ожидание</p>
-        </article>
-        <article>
-          <span id="conversionValue">0%</span>
-          <p>конверсия акции</p>
-        </article>
-      </section>
+    <section class="stats" aria-label="Ключевые показатели проекта">
+      <article>
+        <strong data-count="48">0</strong><span>%</span>
+        <p>экономия электроэнергии в Smart-освещении</p>
+      </article>
+      <article>
+        <strong data-count="40">0</strong><span>%</span>
+        <p>экономия эксплуатационных расходов</p>
+      </article>
+      <article>
+        <strong data-count="1000">0</strong><span>+</span>
+        <p>световых постов на территории ЭКСПО-2017</p>
+      </article>
+      <article>
+        <strong data-count="80">0</strong><span>%</span>
+        <p>снижение потерь от аварий, утечек и отбора</p>
+      </article>
+    </section>
 
-      <section class="workspace">
-        <div class="panel queue-panel" id="queue">
-          <div class="panel__head">
-            <div>
-              <p class="eyebrow">Очередь</p>
-              <h2>Новые заявки</h2>
-            </div>
-            <span class="live-pill" id="livePill">Live</span>
-          </div>
-          <div class="lead-list" id="leadList" aria-live="polite"></div>
+    <section class="section" id="modules">
+      <div class="section__head">
+        <p class="eyebrow">Состав пилота</p>
+        <h2>В одном из районов Астаны TTC внедрил несколько направлений Smart City</h2>
+      </div>
+
+      <div class="module-layout">
+        <div class="module-tabs" role="tablist" aria-label="Модули Smart City">
+          <button class="module-tab is-active" type="button" data-module="security">Безопасный город</button>
+          <button class="module-tab" type="button" data-module="lighting">Smart-освещение</button>
+          <button class="module-tab" type="button" data-module="education">Smart-образование</button>
+          <button class="module-tab" type="button" data-module="telemetry">Smart-телеметрия</button>
+          <button class="module-tab" type="button" data-module="housing">Smart-ЖКХ</button>
         </div>
 
-        <aside class="panel detail-panel" aria-label="Карточка лида">
-          <div class="panel__head">
+        <article class="module-card" id="moduleCard" aria-live="polite">
+          <span class="module-card__label">Активный модуль</span>
+          <h3>Безопасный город</h3>
+          <p>Комплексная безопасность жизни населения: видеонаблюдение, контроль инцидентов и снижение количества нарушений.</p>
+          <dl>
             <div>
-              <p class="eyebrow">Карточка</p>
-              <h2 id="detailName">Выберите лид</h2>
-            </div>
-            <span class="status-badge" id="detailStatus">ожидает</span>
-          </div>
-          <dl class="detail-grid">
-            <div>
-              <dt>Телефон</dt>
-              <dd id="detailPhone">-</dd>
+              <dt>Фокус</dt>
+              <dd>Безопасность городской среды</dd>
             </div>
             <div>
-              <dt>Регион</dt>
-              <dd id="detailRegion">-</dd>
-            </div>
-            <div>
-              <dt>Интерес</dt>
-              <dd id="detailTariff">-</dd>
-            </div>
-            <div>
-              <dt>Оператор</dt>
-              <dd id="detailOwner">-</dd>
+              <dt>Эффект</dt>
+              <dd>Меньше происшествий и порчи имущества</dd>
             </div>
           </dl>
-          <label class="field">
-            <span>Причина неподключения</span>
-            <select id="reasonSelect">
-              <option value="">Не выбрана</option>
-              <option>Дорого</option>
-              <option>Не понял выгоду</option>
-              <option>Уже есть другой тариф</option>
-              <option>Не подходит пакет</option>
-              <option>Нужен перезвон</option>
-              <option>Технически недоступно</option>
-            </select>
-          </label>
-          <div class="detail-actions">
-            <button class="primary-btn" type="button" id="connectBtn">Подключен</button>
-            <button class="ghost-btn" type="button" id="declineBtn">Отказ</button>
-          </div>
-        </aside>
-      </section>
+        </article>
+      </div>
+    </section>
 
-      <section class="lower-grid">
-        <div class="panel" id="team">
-          <div class="panel__head">
-            <div>
-              <p class="eyebrow">Команда</p>
-              <h2>Распределение нагрузки</h2>
-            </div>
-            <button class="icon-btn" type="button" id="rebalanceBtn" aria-label="Перебалансировать">↻</button>
-          </div>
-          <div class="operator-list" id="operatorList"></div>
-        </div>
+    <section class="impact-section" id="impact">
+      <div class="impact-copy">
+        <p class="eyebrow">Зачем городу</p>
+        <h2>Smart City переводит инфраструктуру из реактивного обслуживания в управляемые данные</h2>
+        <p>
+          В логике TTC ценность проекта не только в отдельных датчиках или камерах. Главная
+          роль - связать объекты города, собрать данные и дать службам основу для более
+          быстрого принятия решений.
+        </p>
+      </div>
+      <div class="impact-grid">
+        <article>
+          <span>01</span>
+          <h3>Безопасность</h3>
+          <p>Мониторинг нарушений, происшествий и состояния общественных пространств.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Экономия</h3>
+          <p>Снижение расходов на освещение, учет ресурсов и обслуживание инфраструктуры.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Прозрачность</h3>
+          <p>Данные с городских объектов становятся доступнее для анализа и контроля.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Сервисность</h3>
+          <p>Городские службы быстрее реагируют на аварии, утечки и отклонения.</p>
+        </article>
+      </div>
+    </section>
 
-        <div class="panel" id="insights">
-          <div class="panel__head">
-            <div>
-              <p class="eyebrow">Мега-акционный тариф</p>
-              <h2>Почему не подключают</h2>
-            </div>
-            <span class="trend">-8% отказов</span>
-          </div>
-          <div class="reason-chart" id="reasonChart"></div>
-          <div class="script-box">
-            <strong>Подсказка оператору</strong>
-            <p id="scriptTip">Сравните выгоду тарифа с текущими расходами абонента и предложите перезвон, если решение нужно согласовать.</p>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+    <section class="section role-section" id="role">
+      <div class="section__head">
+        <p class="eyebrow">Роль оператора</p>
+        <h2>Для TTC Smart City - это витрина компетенций в B2G и цифровой инфраструктуре</h2>
+      </div>
+      <div class="role-grid">
+        <article>
+          <h3>Связь</h3>
+          <p>Передача данных между объектами городской инфраструктуры и центральными системами.</p>
+        </article>
+        <article>
+          <h3>IoT</h3>
+          <p>Датчики, учет, телеметрия и сбор параметров с объектов в режиме мониторинга.</p>
+        </article>
+        <article>
+          <h3>Интеграция</h3>
+          <p>Объединение решений для акимата, городских служб, коммунального сектора и образования.</p>
+        </article>
+      </div>
+    </section>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <section class="source-section" id="source">
+      <div>
+        <p class="eyebrow">Источник</p>
+        <h2>Материал основан на годовом отчете АО «Транстелеком»</h2>
+        <p>
+          В отчете TTC Smart City описан как проект республиканского значения. В нем перечислены
+          пилотные направления: безопасный город, Smart-уличное освещение, Smart-образование,
+          Smart-телеметрия и Smart-ЖКХ.
+        </p>
+      </div>
+      <a class="button button--primary" href="https://ttc.kz/report-2018/ru/krupnye-i-strategicheski-vazhnye-invesitsionnye-proekty-2018-goda" target="_blank" rel="noreferrer">Открыть отчет TTC</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>TTC Smart City / Умный город</span>
+    <span>Информационный лендинг для презентации конкурентного анализа</span>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
