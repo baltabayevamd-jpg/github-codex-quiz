@@ -118,11 +118,16 @@ main {
 
 .hero__copy,
 .city-stage,
+.tariff-spotlight,
 .stats article,
 .module-card,
 .module-tabs,
+.table-card,
+.package-grid article,
+.timeline article,
 .impact-grid article,
 .role-grid article,
+.takeaway-grid article,
 .source-section {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -217,6 +222,164 @@ p {
   background:
     linear-gradient(180deg, rgba(24, 169, 87, 0.06), transparent 42%),
     #fff;
+}
+
+.tariff-spotlight {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.spotlight-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.spotlight-head span,
+.tariff-spotlight article span,
+.package-grid span {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.spotlight-head strong {
+  font-size: 24px;
+}
+
+.tariff-spotlight article {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 92px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(90deg, #fff, #f5fbf5);
+  padding: 18px;
+}
+
+.tariff-spotlight article strong {
+  font-size: 25px;
+}
+
+.tariff-spotlight article p,
+.tariff-spotlight article em {
+  margin: 0;
+}
+
+.tariff-spotlight article em {
+  color: var(--green-dark);
+  font-style: normal;
+  font-weight: 850;
+}
+
+.table-card {
+  overflow-x: auto;
+  padding: 6px;
+}
+
+table {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 16px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f1f7f2;
+  color: var(--green-dark);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+td {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.package-grid,
+.timeline,
+.takeaway-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.package-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.package-grid article,
+.timeline article,
+.takeaway-grid article {
+  padding: 24px;
+}
+
+.package-grid strong {
+  color: var(--green-dark);
+  font-size: 20px;
+}
+
+.timeline {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.timeline article {
+  position: relative;
+  min-height: 260px;
+}
+
+.timeline article::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 74px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.timeline time {
+  display: block;
+  margin-bottom: 34px;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.takeaways-section {
+  padding-top: 80px;
+}
+
+.takeaway-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.takeaway-grid span {
+  color: var(--green);
+  font-weight: 900;
+}
+
+.takeaway-grid p {
+  font-size: 16px;
 }
 
 .city-stage::before {
@@ -523,8 +686,11 @@ p {
 
   .stats,
   .module-layout,
+  .package-grid,
+  .timeline,
   .impact-grid,
-  .role-grid {
+  .role-grid,
+  .takeaway-grid {
     grid-template-columns: 1fr;
   }
 
@@ -566,6 +732,14 @@ p {
   .node {
     min-width: 78px;
     font-size: 14px;
+  }
+
+  .tariff-spotlight article {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight-head {
+    display: block;
   }
 
   .stats strong {
