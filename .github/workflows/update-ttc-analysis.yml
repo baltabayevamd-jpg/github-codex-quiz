@@ -1,0 +1,27 @@
+name: Update TTC analysis data
+
+on:
+  schedule:
+    - cron: "20 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Refresh TTC data snapshot
+        run: python tools/update_ttc_analysis.py
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update TTC analysis data snapshot"
+          file_pattern: ttc-competitive-analysis/data/ttc-data.json

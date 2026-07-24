@@ -1,0 +1,73 @@
+{
+  "last_checked": "2026-07-24",
+  "status": "Auto-update: TTC source page checked",
+  "source_url": "https://ttc.kz/ru/b2c/",
+  "effective_date": "2026-06-01",
+  "snapshot_date": "2026-07-24",
+  "promo": {
+    "title": "First 3 months -50%",
+    "name": "Vmeste vygodnee",
+    "composition": "Internet 500 Mbps + mobile + TV",
+    "cities": [
+      "Astana",
+      "Almaty",
+      "Shymkent",
+      "Karaganda",
+      "Kostanay",
+      "Aktau",
+      "Kokshetau"
+    ]
+  },
+  "ttc_box": [
+    {
+      "speed": "100 Mbps",
+      "two_in_one": 6899,
+      "two_1y": 6599,
+      "two_2y": 6299,
+      "two_3y": 5999,
+      "three_in_one": 7399,
+      "three_1y": 7099,
+      "three_2y": 6799,
+      "three_3y": 6499
+    },
+    {
+      "speed": "200 Mbps",
+      "two_in_one": 7499,
+      "two_1y": 6999,
+      "two_2y": 6499,
+      "two_3y": 5999,
+      "three_in_one": 7999,
+      "three_1y": 7499,
+      "three_2y": 6999,
+      "three_3y": 6499
+    },
+    {
+      "speed": "500 Mbps",
+      "two_in_one": 8499,
+      "two_1y": 7999,
+      "two_2y": 7499,
+      "two_3y": 6999,
+      "three_in_one": 8999,
+      "three_1y": 8499,
+      "three_2y": 7999,
+      "three_3y": 7499
+    },
+    {
+      "speed": "700 Mbps",
+      "two_in_one": 9499,
+      "two_1y": 8999,
+      "two_2y": 8499,
+      "two_3y": 7999,
+      "three_in_one": 9999,
+      "three_1y": 9499,
+      "three_2y": 8999,
+      "three_3y": 8499
+    }
+  ],
+  "source_hash": "a60c1eeebb4e6cb82fc1a74867a6ed838af6a0779cbda04c60f8b2ab799d4e10",
+  "source_markers": {
+    "has_ttc_box": true,
+    "has_discount_promo": true,
+    "has_tv_180": true
+  }
+}

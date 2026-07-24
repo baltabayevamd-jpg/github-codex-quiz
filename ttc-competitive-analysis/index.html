@@ -38,6 +38,11 @@
           Сайт показывает текущие прямые тарифы TTC, их контрактную механику, историю
           изменений, сравнение с Казахтелекомом и выводы, где можно усилить наше предложение.
         </p>
+        <div class="auto-status" id="autoStatus">
+          <span>Автообновление</span>
+          <strong>данные проверяются ежедневно</strong>
+          <small>Источник: ttc.kz/ru/b2c</small>
+        </div>
         <div class="hero__actions">
           <a class="btn btn--dark" href="#tariffs">Открыть тарифы</a>
           <a class="btn btn--light" href="#wins">Выводы для нас</a>
@@ -194,6 +199,87 @@
           </ul>
         </article>
       </div>
+
+      <div class="combo-breakdown" aria-label="Расшифровка тарифов 2в1 и 3в1">
+        <div class="section__head mini">
+          <p class="eyebrow">Расшифровка 2в1 и 3в1</p>
+          <h2>Пакеты TTC BOX различаются скоростью, наличием телефона и сроком контракта</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Скорость</th>
+                <th>2в1: интернет + TV 180+</th>
+                <th>2в1, 1 год</th>
+                <th>2в1, 2 года</th>
+                <th>2в1, 3 года</th>
+                <th>3в1: + телефония</th>
+                <th>3в1, 1 год</th>
+                <th>3в1, 2 года</th>
+                <th>3в1, 3 года</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>100 Мбит/с</td>
+                <td>6 899 ₸</td>
+                <td>6 599 ₸</td>
+                <td>6 299 ₸</td>
+                <td>5 999 ₸</td>
+                <td>7 399 ₸</td>
+                <td>7 099 ₸</td>
+                <td>6 799 ₸</td>
+                <td>6 499 ₸</td>
+              </tr>
+              <tr>
+                <td>200 Мбит/с</td>
+                <td>7 499 ₸</td>
+                <td>6 999 ₸</td>
+                <td>6 499 ₸</td>
+                <td>5 999 ₸</td>
+                <td>7 999 ₸</td>
+                <td>7 499 ₸</td>
+                <td>6 999 ₸</td>
+                <td>6 499 ₸</td>
+              </tr>
+              <tr>
+                <td>500 Мбит/с</td>
+                <td>8 499 ₸</td>
+                <td>7 999 ₸</td>
+                <td>7 499 ₸</td>
+                <td>6 999 ₸</td>
+                <td>8 999 ₸</td>
+                <td>8 499 ₸</td>
+                <td>7 999 ₸</td>
+                <td>7 499 ₸</td>
+              </tr>
+              <tr>
+                <td>700 Мбит/с</td>
+                <td>9 499 ₸</td>
+                <td>8 999 ₸</td>
+                <td>8 499 ₸</td>
+                <td>7 999 ₸</td>
+                <td>9 999 ₸</td>
+                <td>9 499 ₸</td>
+                <td>8 999 ₸</td>
+                <td>8 499 ₸</td>
+              </tr>
+              <tr>
+                <td>ADSL 10/12/16 Мбит/с</td>
+                <td>4 900 / 5 100 / 6 200 ₸</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>5 400 / 5 600 / 6 700 ₸</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
     <section class="section tv-section" id="tv">
@@ -223,6 +309,21 @@
           </dl>
           <p>Для TTC TV 180+ работает как аргумент наполнения пакета, особенно в предложениях TTC BOX 2в1 и 3в1.</p>
         </aside>
+      </div>
+      <div class="channel-browser" aria-label="Интерактивный список телеканалов">
+        <div class="section__head mini">
+          <p class="eyebrow">Нажмите на категорию</p>
+          <h2>Полный пакет раскрывается по категориям каналов</h2>
+        </div>
+        <div class="channel-tabs" role="tablist" aria-label="Категории телеканалов">
+          <button class="channel-tab is-active" type="button" data-channel="kazakh">Казахстанские</button>
+          <button class="channel-tab" type="button" data-channel="movies">Фильмы и сериалы</button>
+          <button class="channel-tab" type="button" data-channel="kids">Детские</button>
+          <button class="channel-tab" type="button" data-channel="sport">Спорт</button>
+          <button class="channel-tab" type="button" data-channel="english">Иностранные</button>
+          <button class="channel-tab" type="button" data-channel="cognitive">Познавательные</button>
+        </div>
+        <article class="channel-panel" id="channelPanel" aria-live="polite"></article>
       </div>
     </section>
 
@@ -260,6 +361,11 @@
         <p class="eyebrow">Акции и конвергенция</p>
         <h2>TTC расширяет продуктовую линейку через Altel, онлайн-кинотеатры и digital-продвижение</h2>
       </div>
+      <div class="promo-banner">
+        <span>Текущая акция</span>
+        <strong>Первые 3 месяца -50%</strong>
+        <p>Акционное предложение «Вместе выгоднее!» включает интернет 500 Мбит/с, мобильную связь и TV. После первых 3 месяцев применяется стандартная цена.</p>
+      </div>
       <div class="promo-grid">
         <article class="promo-card">
           <span>Вместе выгоднее</span>
@@ -292,10 +398,15 @@
     <section class="section" id="changes">
       <div class="section__head">
         <p class="eyebrow">История изменений</p>
-        <h2>Что поменялось в тарифной логике TTC</h2>
+        <h2>Что поменялось в тарифной логике TTC и с какой даты</h2>
       </div>
       <div class="change-layout">
         <div class="change-chart" aria-label="Сравнение базовой цены GPON">
+          <div class="effective-date">
+            <span>Дата вступления</span>
+            <strong>с 1 июня 2026 года</strong>
+            <p>Изменение стоимости части интернет-тарифов TTC зафиксировано в новостных обзорах рынка связи.</p>
+          </div>
           <div class="bar-row">
             <span>200 Мбит/с</span>
             <div><i style="width: 74%"></i></div>
@@ -314,15 +425,15 @@
         </div>
         <div class="timeline">
           <article>
-            <time>Предыдущий срез</time>
+            <time>До 01.06.2026</time>
             <p>GPON без контракта выглядел дешевле: 200 Мбит/с - 5 999 ₸, 500 Мбит/с - 6 499 ₸, 700 Мбит/с - 6 999 ₸.</p>
           </article>
           <article>
-            <time>Текущая витрина</time>
+            <time>С 01.06.2026</time>
             <p>Базовые цены выше: 7 000 / 8 000 / 9 000 ₸, но контракт на 3 года показывает сильную скидку.</p>
           </article>
           <article>
-            <time>Коммерческий вывод</time>
+            <time>Срез сайта: 15-24.07.2026</time>
             <p>TTC продаёт не просто интернет, а экономию за обязательство. Это повышает удержание, но создаёт барьер для части клиентов.</p>
           </article>
         </div>
