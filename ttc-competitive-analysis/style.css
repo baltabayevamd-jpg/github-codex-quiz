@@ -120,10 +120,15 @@ main {
 .hero-tariffs,
 .quick-insights article,
 .tariff-card,
+.channel-rank article,
+.language-card,
+.contract-grid article,
+.promo-card,
 .change-chart,
 .timeline article,
 .table-wrap,
 .contact-grid article,
+.voice-grid article,
 .wins-grid article,
 .source-note {
   border: 1px solid var(--line);
@@ -280,14 +285,22 @@ p {
 
 .quick-insights article,
 .tariff-card,
+.channel-rank article,
+.language-card,
+.contract-grid article,
+.promo-card,
 .timeline article,
 .contact-grid article,
+.voice-grid article,
 .wins-grid article,
 .source-note {
   padding: 24px;
 }
 
 .quick-insights span,
+.contract-grid span,
+.promo-card span,
+.voice-grid span,
 .wins-grid span {
   color: var(--green);
   font-size: 13px;
@@ -304,6 +317,10 @@ p {
 .quick-insights p,
 .tariff-card p,
 .tariff-card li,
+.language-card p,
+.contract-grid p,
+.promo-card p,
+.voice-grid p,
 .wins-grid p,
 .source-note p {
   font-size: 16px;
@@ -375,6 +392,127 @@ p {
 
 .tariff-card.is-hidden {
   display: none;
+}
+
+.tv-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 18px;
+}
+
+.channel-rank {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.channel-rank article {
+  min-height: 140px;
+}
+
+.channel-rank span {
+  display: block;
+  color: var(--green);
+  font-size: 48px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.channel-rank p {
+  margin: 12px 0 0;
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.language-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.language-card span,
+.package-label {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.language-card dl {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.language-card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+.language-card dt,
+.language-card dd {
+  margin: 0;
+}
+
+.language-card dd {
+  color: var(--green-dark);
+  font-weight: 950;
+}
+
+.contract-grid,
+.promo-grid,
+.voice-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.contract-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.contract-grid article:last-child {
+  background: linear-gradient(135deg, var(--soft), #fff);
+}
+
+.promo-grid {
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+}
+
+.promo-card {
+  min-height: 260px;
+}
+
+.promo-card:first-child {
+  background: linear-gradient(135deg, #f3fbf2, #fff);
+}
+
+.sim-row {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.sim-row strong {
+  display: block;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+.voice-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.voice-grid article:nth-child(2) {
+  border-color: rgba(223, 91, 91, 0.35);
+}
+
+.voice-grid article:nth-child(2) span {
+  color: var(--red);
 }
 
 .change-layout {
@@ -514,8 +652,15 @@ tbody tr:last-child td {
 
 @media (max-width: 1120px) {
   .tariff-grid,
+  .channel-rank,
+  .contract-grid,
+  .promo-grid,
   .wins-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tv-layout {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -542,7 +687,8 @@ tbody tr:last-child td {
 
   .quick-insights,
   .timeline,
-  .contact-grid {
+  .contact-grid,
+  .voice-grid {
     grid-template-columns: 1fr;
   }
 
@@ -574,6 +720,9 @@ tbody tr:last-child td {
   }
 
   .tariff-grid,
+  .channel-rank,
+  .contract-grid,
+  .promo-grid,
   .wins-grid {
     grid-template-columns: 1fr;
   }
