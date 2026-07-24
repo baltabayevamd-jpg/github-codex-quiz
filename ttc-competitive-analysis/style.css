@@ -107,14 +107,116 @@ main {
   margin: 0 auto;
 }
 
+.book-main {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  min-height: calc(100vh - 76px);
+  padding: 18px 0 24px;
+}
+
+.page-sidebar {
+  position: sticky;
+  top: 94px;
+  display: grid;
+  gap: 14px;
+  max-height: calc(100vh - 112px);
+  border: 1px solid rgba(219, 231, 221, 0.92);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(238, 248, 238, 0.96), rgba(255, 255, 255, 0.96)),
+    #fff;
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.page-sidebar__title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.page-sidebar__title span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.page-sidebar__title strong {
+  color: var(--green);
+  font-size: 16px;
+}
+
+.page-list {
+  display: grid;
+  gap: 6px;
+}
+
+.page-link,
+.page-controls button {
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  padding: 0 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.page-link:hover,
+.page-link.is-active {
+  border-color: rgba(23, 169, 87, 0.32);
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.page-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.page-controls button {
+  text-align: center;
+  background: #fff;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.book-page {
+  display: none;
+  grid-column: 2;
+  max-height: calc(100vh - 118px);
+  overflow: auto;
+}
+
+.book-page.is-active {
+  display: block;
+}
+
+.hero.book-page.is-active,
+.quick-insights.book-page.is-active {
+  display: grid;
+}
+
 .hero {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
   gap: 24px;
   align-items: stretch;
-  min-height: calc(100vh - 84px);
-  padding: 38px 0 24px;
+  min-height: auto;
+  padding: 0;
 }
 
 .hero::before {
@@ -204,22 +306,22 @@ p {
 h1 {
   max-width: 800px;
   margin-bottom: 18px;
-  font-size: clamp(44px, 5.4vw, 78px);
-  line-height: 0.96;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.04;
   letter-spacing: 0;
 }
 
 h2 {
   max-width: 980px;
   margin-bottom: 0;
-  font-size: clamp(30px, 3.3vw, 48px);
-  line-height: 1.08;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.14;
   letter-spacing: 0;
 }
 
 h3 {
   margin-bottom: 10px;
-  font-size: 23px;
+  font-size: 19px;
   line-height: 1.16;
 }
 
@@ -306,7 +408,7 @@ p {
 .hero-tariffs article strong {
   display: block;
   margin-top: 7px;
-  font-size: 42px;
+  font-size: 30px;
   line-height: 1;
 }
 
@@ -378,7 +480,7 @@ p {
 .quick-insights strong {
   display: block;
   margin: 8px 0;
-  font-size: 26px;
+  font-size: 20px;
 }
 
 .quick-insights p,
@@ -395,6 +497,14 @@ p {
 
 .section {
   padding: 68px 0;
+}
+
+.section.book-page {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+  padding: 24px;
 }
 
 .section__head {
@@ -446,7 +556,7 @@ p {
 .tariff-card strong {
   display: block;
   margin: 8px 0 16px;
-  font-size: 30px;
+  font-size: 22px;
 }
 
 .tariff-card ul {
@@ -492,7 +602,7 @@ p {
 .channel-rank span {
   display: block;
   color: var(--green);
-  font-size: 48px;
+  font-size: 34px;
   font-weight: 950;
   line-height: 1;
 }
@@ -730,7 +840,7 @@ p {
 .effective-date strong {
   display: block;
   margin: 6px 0;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .effective-date p {
@@ -819,7 +929,12 @@ tbody tr:last-child td {
 .contact-grid strong {
   display: block;
   margin: 8px 0;
-  font-size: 30px;
+  font-size: 22px;
+}
+
+.page-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
 }
 
 .city-list {
@@ -870,10 +985,26 @@ tbody tr:last-child td {
 
 @media (max-width: 920px) {
   .topbar,
+  .book-main,
   .hero,
   .change-layout,
   .footer {
     display: block;
+  }
+
+  .page-sidebar {
+    position: static;
+    max-height: none;
+    margin-bottom: 16px;
+  }
+
+  .page-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .book-page {
+    max-height: none;
+    overflow: visible;
   }
 
   .nav {
@@ -911,7 +1042,7 @@ tbody tr:last-child td {
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 32px;
   }
 
   .hero__content {

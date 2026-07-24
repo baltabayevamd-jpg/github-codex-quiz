@@ -29,8 +29,31 @@
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
+  <main id="top" class="book-main">
+    <aside class="page-sidebar" aria-label="Страницы анализа">
+      <div class="page-sidebar__title">
+        <span>Книга анализа</span>
+        <strong id="pageCounter">01 / 10</strong>
+      </div>
+      <div class="page-list" role="tablist" aria-label="Навигация по страницам">
+        <button class="page-link is-active" type="button" data-page-target="overview">01 Обзор</button>
+        <button class="page-link" type="button" data-page-target="tariffs">02 Тарифы</button>
+        <button class="page-link" type="button" data-page-target="tv">03 TV 180+</button>
+        <button class="page-link" type="button" data-page-target="contract">04 Контракт</button>
+        <button class="page-link" type="button" data-page-target="promo">05 Акции</button>
+        <button class="page-link" type="button" data-page-target="changes">06 Изменения</button>
+        <button class="page-link" type="button" data-page-target="compare">07 Сравнение</button>
+        <button class="page-link" type="button" data-page-target="contacts">08 Контакты</button>
+        <button class="page-link" type="button" data-page-target="voice">09 Отзывы</button>
+        <button class="page-link" type="button" data-page-target="wins">10 Выводы</button>
+      </div>
+      <div class="page-controls">
+        <button type="button" id="prevPage">Назад</button>
+        <button type="button" id="nextPage">Далее</button>
+      </div>
+    </aside>
+
+    <section class="hero book-page is-active" data-page="overview">
       <div class="hero__content">
         <p class="eyebrow">Конкурентный анализ на 23.07.2026</p>
         <h1>Тарифы Транстелекома сразу на первом экране</h1>
@@ -78,7 +101,7 @@
       </aside>
     </section>
 
-    <section class="quick-insights" aria-label="Ключевые выводы">
+    <section class="quick-insights book-page is-active" data-page="overview" aria-label="Ключевые выводы">
       <article>
         <span>Главный рычаг</span>
         <strong>3-летний контракт</strong>
@@ -96,7 +119,7 @@
       </article>
     </section>
 
-    <section class="section" id="tariffs">
+    <section class="section book-page" id="tariffs" data-page="tariffs">
       <div class="section__head">
         <p class="eyebrow">Текущие тарифы Транстелекома</p>
         <h2>Прямые тарифные планы TTC: цена, скорость и условия</h2>
@@ -282,7 +305,7 @@
       </div>
     </section>
 
-    <section class="section tv-section" id="tv">
+    <section class="section tv-section book-page" id="tv" data-page="tv">
       <div class="section__head">
         <p class="eyebrow">TV 180+ как часть пакета</p>
         <h2>TTC усиливает интернет-пакеты большой ТВ-витриной и языковыми версиями</h2>
@@ -327,7 +350,7 @@
       </div>
     </section>
 
-    <section class="section contract-section" id="contract">
+    <section class="section contract-section book-page" id="contract" data-page="contract">
       <div class="section__head">
         <p class="eyebrow">Условия контракта</p>
         <h2>Низкая цена TTC сопровождается обязательством вернуть скидку при досрочном расторжении</h2>
@@ -356,7 +379,7 @@
       </div>
     </section>
 
-    <section class="section promo-section" id="promo">
+    <section class="section promo-section book-page" id="promo" data-page="promo">
       <div class="section__head">
         <p class="eyebrow">Акции и конвергенция</p>
         <h2>TTC расширяет продуктовую линейку через Altel, онлайн-кинотеатры и digital-продвижение</h2>
@@ -395,7 +418,7 @@
       </div>
     </section>
 
-    <section class="section" id="changes">
+    <section class="section book-page" id="changes" data-page="changes">
       <div class="section__head">
         <p class="eyebrow">История изменений</p>
         <h2>Что поменялось в тарифной логике TTC и с какой даты</h2>
@@ -440,7 +463,7 @@
       </div>
     </section>
 
-    <section class="section" id="compare">
+    <section class="section book-page" id="compare" data-page="compare">
       <div class="section__head">
         <p class="eyebrow">Транстелеком vs Казахтелеком</p>
         <h2>Сравнительная таблица по ключевым параметрам</h2>
@@ -497,7 +520,7 @@
       </div>
     </section>
 
-    <section class="section contacts-section" id="contacts">
+    <section class="section contacts-section book-page" id="contacts" data-page="contacts">
       <div class="section__head">
         <p class="eyebrow">Контакты TTC по услугам</p>
         <h2>Что видит клиент при поиске связи с Транстелекомом</h2>
@@ -525,7 +548,7 @@
       </p>
     </section>
 
-    <section class="section voice-section" id="voice">
+    <section class="section voice-section book-page" id="voice" data-page="voice">
       <div class="section__head">
         <p class="eyebrow">Отзывы клиентов</p>
         <h2>Пользователи хвалят сотрудников, но часто жалуются на стабильность и качество интернета</h2>
@@ -549,7 +572,7 @@
       </div>
     </section>
 
-    <section class="section wins-section" id="wins">
+    <section class="section wins-section book-page" id="wins" data-page="wins">
       <div class="section__head">
         <p class="eyebrow">Выводы для нас</p>
         <h2>Слабые места TTC и где Казахтелеком может выиграть</h2>
@@ -603,7 +626,7 @@
       </div>
     </section>
 
-    <section class="source-note">
+    <section class="source-note book-page" data-page="wins">
       <p>
         Источники: официальный сайт TTC B2C, страница контактов TTC, публичные страницы Казахтелекома
         по домашнему интернету, открытый конкурентный срез рынка фиксированного доступа и презентация

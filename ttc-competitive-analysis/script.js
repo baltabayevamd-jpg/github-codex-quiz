@@ -1,6 +1,77 @@
 const filterButtons = document.querySelectorAll(".filter");
 const tariffCards = document.querySelectorAll(".tariff-card");
 const autoStatus = document.querySelector("#autoStatus");
+const pageLinks = document.querySelectorAll(".page-link");
+const bookPages = document.querySelectorAll(".book-page");
+const pageCounter = document.querySelector("#pageCounter");
+const prevPageButton = document.querySelector("#prevPage");
+const nextPageButton = document.querySelector("#nextPage");
+const pageOrder = [...pageLinks].map((link) => link.dataset.pageTarget);
+let currentPageIndex = Math.max(0, pageOrder.indexOf(location.hash.replace("#", "")));
+
+function showPage(pageKey, updateHash = true) {
+  const nextIndex = Math.max(0, pageOrder.indexOf(pageKey));
+  const nextPage = pageOrder[nextIndex] || "overview";
+  currentPageIndex = nextIndex;
+
+  bookPages.forEach((page) => {
+    page.classList.toggle("is-active", page.dataset.page === nextPage);
+    if (page.dataset.page === nextPage) {
+      page.scrollTop = 0;
+    }
+  });
+
+  pageLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.pageTarget === nextPage);
+  });
+
+  if (pageCounter) {
+    pageCounter.textContent = `${String(currentPageIndex + 1).padStart(2, "0")} / ${String(pageOrder.length).padStart(2, "0")}`;
+  }
+
+  if (prevPageButton) {
+    prevPageButton.disabled = currentPageIndex === 0;
+  }
+
+  if (nextPageButton) {
+    nextPageButton.disabled = currentPageIndex === pageOrder.length - 1;
+  }
+
+  if (updateHash) {
+    history.replaceState(null, "", `#${nextPage}`);
+  }
+}
+
+pageLinks.forEach((link) => {
+  link.addEventListener("click", () => showPage(link.dataset.pageTarget));
+});
+
+document.querySelectorAll(".nav a, .hero__actions a").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = link.getAttribute("href")?.replace("#", "");
+    if (pageOrder.includes(target)) {
+      event.preventDefault();
+      showPage(target);
+    }
+  });
+});
+
+prevPageButton?.addEventListener("click", () => {
+  showPage(pageOrder[Math.max(0, currentPageIndex - 1)]);
+});
+
+nextPageButton?.addEventListener("click", () => {
+  showPage(pageOrder[Math.min(pageOrder.length - 1, currentPageIndex + 1)]);
+});
+
+window.addEventListener("hashchange", () => {
+  const target = location.hash.replace("#", "");
+  if (pageOrder.includes(target)) {
+    showPage(target, false);
+  }
+});
+
+showPage(pageOrder[currentPageIndex] || "overview", false);
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
